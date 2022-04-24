@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-MovieDbApplication<movieDB>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.backend.movieDB.MovieDbApplication",
+            "projectName": "movieDB",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
