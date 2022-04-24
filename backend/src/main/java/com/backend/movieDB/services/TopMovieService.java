@@ -61,7 +61,7 @@ public class TopMovieService {
         try {
             return Double.parseDouble(replace);
         } catch (NumberFormatException e) {
-            System.out.println("Error ocurred trying to parse the rating of the top movies from IMBD");
+            System.out.println("Error ocurred trying to parse the rating of the top movies from IMDB");
             return null;
         }
     }
