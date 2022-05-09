@@ -7,14 +7,22 @@ public class MovieDto {
     public String title;
     public Double rating;
     public Integer releaseYear; 
+    public String id;
     public MovieDto() {
     }
     
-    public MovieDto(String poster, String title, Double rating, Integer releaseYear) { 
+    public MovieDto(String poster, String title, Double rating, Integer releaseYear, String id) { 
         this.poster = poster;
         this.title = title;
         this.rating = rating;
         this.releaseYear = releaseYear;
+        this.id = id;
     }
+
+    public MovieDto(String title) {
+        this.title = title;
+    }
+
+    
 
 }

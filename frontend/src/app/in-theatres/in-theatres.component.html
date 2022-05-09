@@ -1,1 +1,8 @@
-<p>in-theatres works!</p>
+<h1>In Theatres now</h1>
+<div class="movies">
+  <div *ngFor="let movie of topImbd">
+    <div class="movie-container">
+      <a href="#"><img src="{{ movie.poster }}" class="poster" /></a>
+    </div>
+  </div>
+</div>

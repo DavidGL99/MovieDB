@@ -19,11 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class TopMoviesController {
 
     @Autowired
-    private TopMovieService covidDataService;
+    private TopMovieService topMovieService;
 
     @GetMapping("")
-    public ResponseEntity<List<MovieDto>> getCovidData() {
-        return new ResponseEntity<List<MovieDto>>(covidDataService.retrieveTopMovies(),
+    public ResponseEntity<List<MovieDto>> getTopMovies() {
+        return new ResponseEntity<List<MovieDto>>(topMovieService.retrieveTopMovies(),
                 HttpStatus.OK);
     }
 }

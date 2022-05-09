@@ -7,24 +7,32 @@ import { Movie } from 'src/app/movie';
   providedIn: 'root'
 })
 export class MovieService {
-
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+  };
   private movieURL = 'http://www.omdbapi.com/?apikey=fe569e';  // URL to web api
-
+  private backendURL = 'http://localhost:8080/api';
   constructor(
     private http: HttpClient,
   ) { }
 
 
-  getMovie() : Observable<any> {
-    let movieTitle = "cars"
-    return this.http.get(`${this.movieURL}&t=${movieTitle}`)
+  getMovieByTitle(title : String) : Observable<any> {
+    return this.http.get(`${this.movieURL}&t=${title.split(' ').join('%20')}`)
   }
 
-  searchMovies(term: string): Observable<Movie[]> {
-    if (!term.trim()) {
-      // if not search term, return empty movie array.
-      return of([]);
-    }
-    return this.http.get<Movie[]>(`${this.movieURL}&s=${term}`)
+  getinTheatreMovieByTitle(title : String) : Observable<any> {
+    return this.http.get(`${this.movieURL}&t=${title.split(' ').join('%20')}`)
+  }
+
+  getTopMoviesIMBD() : Observable<any> {
+    return this.http.get(`${this.backendURL}/top`)
+  }
+
+  getInTheatres() : Observable<any> {
+    return this.http.get(`${this.backendURL}/inTheatres`)
+  }
+  searchMovie(title : String) : Observable<any> {
+    return this.http.get(`${this.movieURL}&s=${title.split(' ').join('%20')}`)
   }
 }

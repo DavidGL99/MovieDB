@@ -12,9 +12,4 @@ export class AppComponent {
     private movieService: MovieService,
   ) {}
 
-  getMovie(){
-    console.log(this.movieService.getMovie().subscribe((data)=>{
-      console.log(data);
-    }))
-  }
 }

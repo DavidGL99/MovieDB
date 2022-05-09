@@ -1,0 +1,44 @@
+.movies {
+  display: flex;
+flex-direction: row;
+flex-wrap: nowrap;
+position: sticky;
+gap: 20px;
+overflow-x: scroll;
+margin-left: 20px;
+margin-right: 20px;
+}
+
+/*
+.movies::-webkit-scrollbar {
+  display: none;
+}
+.movies {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+*/
+.movie-container {
+  height: 240px;
+}
+
+img {
+  pointer-events: none;
+  max-height: 90%;
+height: auto;
+object-fit: contain;
+display: block;
+margin-left: 15%;
+}
+p{
+  padding: 5px;
+}
+
+h1{
+  margin: 30px;
+  Font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+  text-decoration:none;
+  font-size: 22px;
+}
+
+

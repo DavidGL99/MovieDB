@@ -3,7 +3,6 @@ package com.backend.movieDB.services;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 import com.backend.movieDB.dto.MovieDto;
 
 import org.jsoup.Jsoup;
@@ -18,27 +17,32 @@ public class TopMovieService {
         List<MovieDto> topMovies = new ArrayList<>();
 
         try {
-            Document webPage = Jsoup.connect("https://www.imdb.com/chart/top/")
+            Document webPage = Jsoup.connect("https://www.imdb.com/chart/top/").header("Accept-Language", "en")
                     .get();
             Element tbody = webPage.getElementsByClass("chart full-width").first()
                     .getElementsByTag("tbody").get(0);
 
             List<Element> rows = tbody.children();
 
-            for (Element row : rows) {
+            for (int i = 0; i <20; i ++) {
 
-                Elements tds = row.getElementsByTag("td");
+                Elements tds = rows.get(i).getElementsByTag("td");
 
-                String poster = tds.get(0).getElementsByAttribute("src").first().absUrl("src");
+                String[] aux = tds.get(0).getElementsByAttribute("src").first().absUrl("src").split("@");
+
+                String poster = aux.length == 2 ? aux[0] + "@" : aux[0] + "@@";
+                
+                String id = tds.get(0).getElementsByAttribute("href").first().absUrl("href").split("/")[4];
+
                 if (tds.size() < 5)
                     continue;
 
                 String title = tds.get(1).getElementsByAttribute("href").text();
-                Integer releaseYear= toIntOrNull(
+                Integer releaseYear = toIntOrNull(
                         tds.get(1).getElementsByClass("secondaryInfo").text().replace("(", "").replace(")", ""));
                 Double rating = toDoubleOrNull(tds.get(2).getElementsByAttribute("title").text());
 
-                topMovies.add(new MovieDto(poster, title, rating, releaseYear));
+                topMovies.add(new MovieDto(poster, title, rating, releaseYear, id));
             }
 
             return topMovies;
