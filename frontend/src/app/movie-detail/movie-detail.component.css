@@ -1,0 +1,115 @@
+.movie{
+  margin-left: 15%;
+  border-radius: 13px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  width: 70%;
+  background: white;
+}
+.movie-detail-body{
+  display: flex;
+}
+
+.movie-content{
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+}
+
+.year-runetime-genre{
+  display: flex;
+}
+
+
+.year-runetime-genre > p{
+  margin-right: 10px;
+}
+
+.ratings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom:30px
+}
+
+.ratings > div > p{
+  display: flex;
+  margin-right: 100px;
+
+}
+
+#poster {
+  border-radius: 13px 0 0 13px ;
+  pointer-events: none;
+  max-height: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+#icon {
+  margin-left: 20px;
+  max-width: 50px;
+}
+
+.personal-review{
+  display: flex;
+flex-direction: row-reverse;
+align-items: center;
+width: 100%;
+text-align: center;
+}
+
+.card-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+p, h1{
+  font-family: 'Montserrat';
+}
+h1{
+  font-size: 40px;
+
+}
+.year-runetime-genre > p{
+  font-size: 13px;
+}
+#plot{
+  font-size: 17px;
+  padding-right: 40px;
+}
+#director{
+  font-size: 13px;
+}
+.reviews{
+  margin-left: 15%;
+  border-radius: 13px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: 70%;
+  background: white;}
+
+.reviews > h1{
+  margin-left: 70px;
+}
+
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+.review-header{
+  display: flex;
+  flex-direction: row;
+  margin-left: 20px;
+  margin-right: 40px;
+}

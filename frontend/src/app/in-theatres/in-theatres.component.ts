@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MovieIMBD } from '../movieIMBD';
 import { MovieService } from '../movie.service';
 import { Location } from '@angular/common';
@@ -13,7 +13,7 @@ export class InTheatresComponent implements OnInit {
   titles = [];
 
   constructor(
-    private route: ActivatedRoute,
+    private route: Router,
     private movieService: MovieService,
     private location: Location
   ) {}
@@ -33,7 +33,7 @@ export class InTheatresComponent implements OnInit {
               title: res.Title,
               rating: -1,
               releaseYear: res.Year,
-              id: res.imbdID,
+              id: res.imdbID,
             };
             this.topImbd.push(movie);
           })
@@ -43,5 +43,9 @@ export class InTheatresComponent implements OnInit {
 
   clear() {
     this.topImbd = [];
+  }
+
+  goMovie(id : any){
+    this.route.navigateByUrl(`/movie?id=${id}`);
   }
 }

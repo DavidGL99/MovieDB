@@ -21,6 +21,10 @@ export class MovieService {
     return this.http.get(`${this.movieURL}&t=${title.split(' ').join('%20')}`)
   }
 
+  getMovieById(id : String) : Observable<any> {
+    return this.http.get(`${this.movieURL}&i=${id}&plot=full`)
+  }
+
   getinTheatreMovieByTitle(title : String) : Observable<any> {
     return this.http.get(`${this.movieURL}&t=${title.split(' ').join('%20')}`)
   }

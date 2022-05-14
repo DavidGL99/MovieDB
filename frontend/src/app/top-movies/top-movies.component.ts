@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { MovieService } from '../movie.service';
 import { MovieIMBD } from '../movieIMBD';
@@ -11,7 +11,7 @@ import { MovieIMBD } from '../movieIMBD';
 export class TopMoviesComponent implements OnInit {
   topImbd: MovieIMBD[] = [];
   constructor(
-    private route: ActivatedRoute,
+    private route: Router,
     private movieService: MovieService,
     private location: Location
   ) {}
@@ -28,5 +28,9 @@ export class TopMoviesComponent implements OnInit {
 
   clear() {
     this.topImbd = [];
+  }
+
+  goMovie(id : any){
+    this.route.navigateByUrl(`/movie?id=${id}`);
   }
 }

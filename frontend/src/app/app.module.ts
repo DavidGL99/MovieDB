@@ -9,6 +9,14 @@ import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SearchMovieComponent } from './search-movie/search-movie.component';
 import { HomeComponent } from './home/home.component';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { DialogOverviewExampleDialog } from './movie-detail/movie-detail.component';
 
 @NgModule({
   imports: [
@@ -16,6 +24,12 @@ import { HomeComponent } from './home/home.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatDividerModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatFormFieldModule,
+
   ],
   declarations: [
     AppComponent,
@@ -24,10 +38,11 @@ import { HomeComponent } from './home/home.component';
     NavbarComponent,
     SearchMovieComponent,
     HomeComponent,
+    MovieDetailComponent,
+    DialogOverviewExampleDialog
   ],
 
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
-
+export class AppModule {}

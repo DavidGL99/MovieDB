@@ -1,7 +1,5 @@
 package com.backend.movieDB.entity;
 
-
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,10 +8,8 @@ import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
-
-
 @Entity
-@Table(name="reviews")
+@Table(name = "reviews")
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,18 +19,15 @@ public class Review {
     @NotBlank(message = "body is mandatory")
     private String body;
 
-    @NotBlank(message ="score is mandatory")
     private int score;
 
     @NotBlank(message = "Movie is mandatory")
-    private int movieID;
+    private String movieID;
 
     public Review() {
     }
 
-    public Review(@NotBlank(message = "body is mandatory") String body,
-            @NotBlank(message = "score is mandatory") int score,
-            @NotBlank(message = "Movie is mandatory") int movieID) {
+    public Review(String body, int score, String movieID) {
         this.body = body;
         this.score = score;
         this.movieID = movieID;
@@ -64,11 +57,11 @@ public class Review {
         this.score = score;
     }
 
-    public int getMovieID() {
+    public String getMovieID() {
         return movieID;
     }
 
-    public void setMovieID(int movieID) {
+    public void setMovieID(String movieID) {
         this.movieID = movieID;
     }
 
@@ -77,6 +70,4 @@ public class Review {
         return "Review [body=" + body + ", movieID=" + movieID + ", score=" + score + "]";
     }
 
-    
-    
 }

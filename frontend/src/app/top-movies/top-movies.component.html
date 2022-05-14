@@ -1,8 +1,8 @@
 <h1>Top movies from IMBD</h1>
 <div class="movies">
   <div *ngFor="let movie of topImbd">
-    <div class="movie-container">
-      <a href="#"><img src="{{ movie.poster }}" class="poster" /></a>
+    <div class="movie-container" (click)="goMovie(movie.id)">
+      <a ><img src="{{ movie.poster }}" class="poster" /></a>
     </div>
   </div>
 </div>

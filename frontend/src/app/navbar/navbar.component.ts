@@ -13,9 +13,15 @@ export class NavbarComponent implements OnInit {
     private route: Router,
     private movieService: MovieService,
     private location: Location
-  ) {}
+  ) {
+    this.route.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
 
   search(movie:String) {
     this.route.navigateByUrl(`/search?title=${this.title}`);

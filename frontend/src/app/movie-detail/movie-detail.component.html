@@ -1,0 +1,46 @@
+<div class="movie">
+  <div class="movie-detail-body">
+    <img id="poster" src="{{ movie.Poster }}" alt="" />
+    <div class="movie-content">
+      <div class="card-header">
+        <h1>{{ movie.Title }}</h1>
+
+      </div>
+
+      <div class="year-runetime-genre">
+        <p>{{ movie.Year }} |</p>
+        <p>{{ movie.Runtime }} |</p>
+        <p>{{ movie.Genre }}</p>
+      </div>
+      <p id="plot">{{ movie.Plot }}</p>
+      <p id="director">Directed by: {{ movie.Director }}</p>
+      <div class="ratings">
+        <div *ngFor="let rating of movie.Ratings">
+          <p>{{ rating.Source }} : {{ rating.Value }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="reviews">
+    <div class="review-header">
+      <h1>Reviews</h1>
+      <div class="personal-review">
+        <input type="image" id="icon" src="../../assets/review.png" (click)="openDialog()"/>
+        <p>Make your review!</p>
+
+      </div>
+    </div>
+
+</div>
+
+
+
+
+<ng-template #dialogRef let-mydata>
+  <h5>Hi I am Template Dialog following Foo list:</h5>
+  <ul *ngIf="mydata">
+    <li *ngFor="let item of mydata">{{item}}</li>
+  </ul>
+  <button mat-button mat-dialog-close="I am from dialog land...">Close</button>
+</ng-template>

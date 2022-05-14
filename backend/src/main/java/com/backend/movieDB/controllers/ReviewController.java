@@ -25,13 +25,13 @@ public class ReviewController {
     private ReviewRepository repository;
 
     @Transactional
-    @GetMapping(path = "/review/{movieID}")
-    public List<Review> findByMovieID(@PathVariable("carroceria") String movieID) {
+    @GetMapping(path = "/{movieID}")
+    public List<Review> findByMovieID(@PathVariable("movieID") String movieID) {
         return repository.findByMovieID(movieID);
     }
-    @PostMapping(path = "/review")
-    public Review createUser(@RequestBody Review review) {
-        return repository.save(review);
+    @PostMapping(path = "")
+    public Review createReview(@RequestBody Review review) {
+        return repository.save(review); 
     }
 
 }
