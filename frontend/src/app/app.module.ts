@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { InTheatresComponent } from './in-theatres/in-theatres.component';
 import { TopMoviesComponent } from './top-movies/top-movies.component';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SearchMovieComponent } from './search-movie/search-movie.component';
 import { HomeComponent } from './home/home.component';
@@ -17,6 +17,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DialogOverviewExampleDialog } from './movie-detail/movie-detail.component';
+import { MatInputModule } from '@angular/material/input';
+import { NgxStarRatingModule } from 'ngx-star-rating';
 
 @NgModule({
   imports: [
@@ -29,7 +31,9 @@ import { DialogOverviewExampleDialog } from './movie-detail/movie-detail.compone
     MatDialogModule,
     MatButtonModule,
     MatFormFieldModule,
-
+    ReactiveFormsModule,
+    MatInputModule,
+    NgxStarRatingModule,
   ],
   declarations: [
     AppComponent,
@@ -39,7 +43,7 @@ import { DialogOverviewExampleDialog } from './movie-detail/movie-detail.compone
     SearchMovieComponent,
     HomeComponent,
     MovieDetailComponent,
-    DialogOverviewExampleDialog
+    DialogOverviewExampleDialog,
   ],
 
   bootstrap: [AppComponent],

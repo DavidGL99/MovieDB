@@ -113,3 +113,30 @@ h1{
   margin-left: 20px;
   margin-right: 40px;
 }
+
+.review-card{
+  border-radius: 8px;
+  border: 1px solid #45b2ae69;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+
+}
+
+.review-card > p {
+  margin-left: 50px;
+}
+
+.review-card> .score > .star > p{
+  margin-left: 50px;
+}
+.score{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.star{
+  display: flex;
+  flex-direction: row;
+  margin-right: 75px;
+}

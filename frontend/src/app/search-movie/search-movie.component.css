@@ -79,3 +79,8 @@ width: 1300px;
   margin-top: 30px;
 }
 
+.info{
+  display: flex;
+  flex-direction: row;
+  width: 1250px;
+}

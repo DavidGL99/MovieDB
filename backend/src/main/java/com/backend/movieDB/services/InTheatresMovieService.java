@@ -17,17 +17,22 @@ public class InTheatresMovieService {
         List<MovieDto> inTheatres = new ArrayList<>();
 
         try {
-            Document webPage = Jsoup.connect("https://www.rottentomatoes.com/")
+            Document webPage = Jsoup.connect("https://www.imdb.com/showtimes/location?ref_=inth_ov_sh_sm")
+                    .header("Accept-Language", "en")
                     .get();
-            Element tbody = webPage.getElementById("media-lists"); 
-            Element carousel = tbody.children().first().tagName("tiles-carousel-responsive");
-            Elements items = carousel.getElementsByTag("tiles-carousel-responsive-item");
+            Element tbody = webPage.getElementsByClass("lister list detail sub-list").first();
 
-            for (int i = 0; i <15; i ++) {
-                String title = items.get(i).getElementsByTag("span").first().text();
-                inTheatres.add(new MovieDto(title));
+            Elements items = tbody.children().get(1).getElementsByClass("lister-item mode-grid");
+
+            for (Element item : items) {
+                String id = item.getElementsByAttribute("data-tconst").first().getElementsByClass("title").first()
+                        .select("a").attr("href").split("/")[3];
+
+                String poster = item.getElementsByAttribute("data-tconst").first().getElementsByAttribute("loadlate")
+                        .attr("loadlate");
+
+                inTheatres.add(new MovieDto(poster, id));
             }
-
 
             return inTheatres;
 
@@ -35,22 +40,5 @@ public class InTheatresMovieService {
             e.printStackTrace();
         }
         return null;
-    }
-
-    private Integer toIntOrNull(String replace) {
-        try {
-            return Integer.parseInt(replace.replace(",", ""));
-        } catch (NumberFormatException e) {
-            return null;
-        }
-    }
-
-    private Double toDoubleOrNull(String replace) {
-        try {
-            return Double.parseDouble(replace);
-        } catch (NumberFormatException e) {
-            System.out.println("Error ocurred trying to parse the rating of the top movies from IMDB");
-            return null;
-        }
     }
 }

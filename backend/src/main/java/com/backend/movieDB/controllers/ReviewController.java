@@ -1,5 +1,6 @@
 package com.backend.movieDB.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -9,6 +10,7 @@ import com.backend.movieDB.repositories.ReviewRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,6 +34,16 @@ public class ReviewController {
     @PostMapping(path = "")
     public Review createReview(@RequestBody Review review) {
         return repository.save(review); 
+    }
+    @GetMapping(path = "")
+    public List<Review> findByAll() {
+        return  repository.findAll(); 
+    }
+
+    @Transactional
+    @DeleteMapping(path = "/{movieID}")
+    public void deleteByMovieID(@PathVariable("movieID") String movieID) {
+        repository.deleteByMovieID(movieID); 
     }
 
 }

@@ -12,12 +12,15 @@
   flex-direction: row;
   align-items: center;
   gap: 20px;
-}
-.itemsnavbar {
-  width: 37%;
+  justify-content: space-between;}
+
+.icon-div{
   display: flex;
-  flex-direction: row-reverse;
-  gap: 5%;
+  flex-direction: row;
+  align-items: center;
+  width: 20%;
+  margin-left: 75px;
+  width: 100%;
 }
 
 a {
@@ -38,6 +41,7 @@ a {
  #search{
   width: 40%;
   display: flex;
+  margin-right: 150px;
 }
 input {
   padding: .5rem;

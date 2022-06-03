@@ -24,13 +24,16 @@ public class Review {
     @NotBlank(message = "Movie is mandatory")
     private String movieID;
 
+    @NotBlank(message = "headline is mandatory")
+    private String headline;
     public Review() {
     }
 
-    public Review(String body, int score, String movieID) {
+    public Review(String body, int score, String movieID, String headline) {
         this.body = body;
         this.score = score;
         this.movieID = movieID;
+        this.headline = headline;
     }
 
     public long getId() {
@@ -65,9 +68,20 @@ public class Review {
         this.movieID = movieID;
     }
 
+    public String getHeadline() {
+        return headline;
+    }
+
+    public void setHeadline(String headline) {
+        this.headline = headline;
+    }
+
     @Override
     public String toString() {
-        return "Review [body=" + body + ", movieID=" + movieID + ", score=" + score + "]";
+        return "Review [body=" + body + ", headline=" + headline + ", id=" + id + ", movieID=" + movieID + ", score="
+                + score + "]";
     }
+
+   
 
 }

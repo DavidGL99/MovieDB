@@ -19,8 +19,9 @@ public class MovieDto {
         this.id = id;
     }
 
-    public MovieDto(String title) {
-        this.title = title;
+    public MovieDto(String poster, String id) {
+        this.poster = poster;
+        this.id = id;
     }
 
     

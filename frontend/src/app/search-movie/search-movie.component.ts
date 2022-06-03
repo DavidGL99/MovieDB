@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MovieService } from '../movie.service';
 import { Location } from '@angular/common';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { DialogOverviewExampleDialog } from '../movie-detail/movie-detail.component';
 @Component({
   selector: 'app-search-movie',
   templateUrl: './search-movie.component.html',
@@ -14,7 +16,8 @@ export class SearchMovieComponent implements OnInit {
     private route: ActivatedRoute,
     private router : Router,
     private movieService: MovieService,
-    private location: Location
+    private location: Location,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -26,7 +29,6 @@ export class SearchMovieComponent implements OnInit {
     if(this.title!=undefined){
     this.movieService.searchMovie(this.title).subscribe((data) => {
       data.Search.forEach((movie: any) => {
-        console.log(movie)
         this.movies.push(movie);
       });
     });
@@ -41,5 +43,20 @@ export class SearchMovieComponent implements OnInit {
     this.router.navigateByUrl(`/movie?id=${id}`);
   }
 
+  openDialog(id : any): void {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      id: id,
+      width: '800px',
+      height: '600px',
+    };
+    const dialogRef = this.dialog.open(
+      DialogOverviewExampleDialog,
+      dialogConfig
+    );
 
+    dialogRef.afterClosed().subscribe(() => {
+      console.log('The dialog was closed');
+    });
+  }
 }

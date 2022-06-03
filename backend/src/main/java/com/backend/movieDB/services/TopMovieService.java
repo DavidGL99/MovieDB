@@ -24,7 +24,7 @@ public class TopMovieService {
 
             List<Element> rows = tbody.children();
 
-            for (int i = 0; i <20; i ++) {
+            for (int i = 0; i <40; i ++) {
 
                 Elements tds = rows.get(i).getElementsByTag("td");
 

@@ -1,12 +1,12 @@
 <div class="mynavbar">
-  <img id="icon" src="../../assets/icon.png" alt="" />
-  <a routerLink="/">MovieDB</a>
-  <div id="search">
-    <input id="search-box" [(ngModel)]="title" (keyup.enter)="search(title)" placeholder="Search movies..."/>
-    <img id="magnifying-glass"src="../../assets/magnifying-glass.svg" alt="">
+  <div class="icon-div">
+    <img id="icon" src="../../assets/icon.png" alt="" />
+    <a routerLink="/">MovieDB</a>
   </div>
-  <div class="itemsnavbar">
-    <a routerLink="/search">Movies</a>
-    <a routerLink="/">Back</a>
-  </div>
+
+
+    <div id="search">
+      <input id="search-box" [(ngModel)]="title" (keyup.enter)="search(title)" placeholder="Search movies..."/>
+      <img id="magnifying-glass"src="../../assets/magnifying-glass.svg" alt="">
+    </div>
 </div>

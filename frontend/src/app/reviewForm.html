@@ -1,13 +1,26 @@
+<h1>Lets make a review!</h1>
+<form [formGroup]="form">
+  <div class="rating-star">
+    <h2>Rating</h2>
+    <ngx-star-rating
+      id="star-form"
+      formControlName="rating"
+      [id]="'rating'"
+    ></ngx-star-rating>
+  </div>
+</form>
 
-<h1 >Lets make a review!</h1>
-<div mat-dialog-content>
+<div class="text-review">
+  <h2>Headline</h2>
 
-  <mat-form-field appearance="fill">
-    <mat-label>Favorite Animal</mat-label>
-    <input matInput [(ngModel)]="data.animal">
-  </mat-form-field>
+  <textarea id="w3review" name="w3review" rows="1" cols="1" [(ngModel)]='headline'> </textarea>
+  <h2>Body</h2>
+
+  <textarea id="w3review" name="w3review" rows="14" cols="79" [(ngModel)]='bodyReview'> </textarea>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
-</div>
+
+
+  <div class="divButton">
+    <button id="button" mat-raised-button (click)="onNoClick()">Cancel</button>
+    <button id="button" mat-raised-button color="primary" (click)="submitReview()">Submit</button>
+  </div>

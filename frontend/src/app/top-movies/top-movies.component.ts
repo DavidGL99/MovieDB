@@ -2,14 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { MovieService } from '../movie.service';
-import { MovieIMBD } from '../movieIMBD';
 @Component({
   selector: 'app-top-movies',
   templateUrl: './top-movies.component.html',
   styleUrls: ['./top-movies.component.css'],
 })
 export class TopMoviesComponent implements OnInit {
-  topImbd: MovieIMBD[] = [];
+  topImbd: any= [];
   constructor(
     private route: Router,
     private movieService: MovieService,

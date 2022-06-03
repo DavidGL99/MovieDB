@@ -14,5 +14,6 @@ import org.springframework.data.repository.query.Param;
 public interface ReviewRepository extends  CrudRepository<Review, Long> {
 
     List<Review> findByMovieID(@Param("movieID")String movieID);
-    
+    List<Review> findAll();
+    void deleteByMovieID(@Param("movieID")String movieID); 
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MovieIMBD } from '../movieIMBD';
 import { MovieService } from '../movie.service';
 import { Location } from '@angular/common';
 @Component({
@@ -9,7 +8,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./in-theatres.component.css'],
 })
 export class InTheatresComponent implements OnInit {
-  topImbd: MovieIMBD[] = [];
+  topImbd: any = [];
   titles = [];
 
   constructor(
@@ -24,20 +23,13 @@ export class InTheatresComponent implements OnInit {
 
   getInTheatres(): void {
     this.movieService.getInTheatres().subscribe((topImbd) => {
-      topImbd.forEach((movie: any) =>
-        this.movieService
-          .getinTheatreMovieByTitle(movie.title)
-          .subscribe((res) => {
-            let movie = {
-              poster: res.Poster,
-              title: res.Title,
-              rating: -1,
-              releaseYear: res.Year,
-              id: res.imdbID,
-            };
-            this.topImbd.push(movie);
-          })
-      );
+      topImbd.forEach((movie: any) => {
+        let current = {
+          poster: movie.poster,
+          id: movie.id,
+        };
+        this.topImbd.push(current);
+      });
     });
   }
 
@@ -45,7 +37,7 @@ export class InTheatresComponent implements OnInit {
     this.topImbd = [];
   }
 
-  goMovie(id : any){
+  goMovie(id: any) {
     this.route.navigateByUrl(`/movie?id=${id}`);
   }
 }

@@ -5,20 +5,21 @@
       <img src="../../assets/notfound-removebg-preview.png" alt="" />
     </div>
   </div>
-
 </div>
 <div class="movies">
   <div *ngIf="isValid(movies)">
     <h1>Search results for : {{ title }}</h1>
     <div class="search-result">
       <div *ngFor="let movie of movies">
-        <div class="movie-container" (click)="goMovie(movie.imdbID)">
-          <a><img id="poster" src="{{ movie.Poster }}" class="poster" /></a>
-          <div id="data-div">
-            <p>Title: {{ movie.Title }}</p>
-            <p>Release year: {{ movie.Year }}</p>
+        <div class="movie-container">
+          <div class="info" (click)="goMovie(movie.imdbID)">
+            <a><img id="poster" src="{{ movie.Poster }}" class="poster" /></a>
+            <div id="data-div">
+              <p>Title: {{ movie.Title }}</p>
+              <p>Release year: {{ movie.Year }}</p>
+            </div>
           </div>
-          <div id="icon-div">
+          <div id="icon-div" (click)="openDialog(movie.imdbID)">
             <img id="icon" src="../../assets/review.png" alt="" />
           </div>
         </div>
